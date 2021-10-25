@@ -1,0 +1,23 @@
+.adminPageWrapper {
+  display: grid;
+  grid-template:
+    "adminHeader adminHeader adminHeader" 10vh
+    "body body body" 80vh
+    "adminFooter adminFooter adminFooter" 10vh/
+    1fr 1fr 1fr;
+}
+
+.adminHeader {
+  grid-area: adminHeader;
+  background-color: rgb(78, 130, 175);
+}
+
+.body {
+  grid-area: body;
+  background-color: rgb(163, 104, 211);
+}
+
+.adminFooter {
+  grid-area: adminFooter;
+  background-color: rgb(72, 223, 160);
+}

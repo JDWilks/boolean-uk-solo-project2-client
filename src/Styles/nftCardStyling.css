@@ -1,0 +1,9 @@
+.nftImage {
+  width: 300px;
+}
+
+.nfts {
+  border: 1px solid black;
+  display: -webkit-inline-box;
+  padding: 20px;
+}
