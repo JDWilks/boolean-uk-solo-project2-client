@@ -1,13 +1,15 @@
 import React from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-import LoginSignUpForm from "../Components/LoginSignUpForm";
+import SignUpForm from "../Components/SignUpForm";
+import LogInForm from "../Components/LogInForm";
 
 function Login() {
   return (
     <div className="mainPageWrapper">
       <Header />
-      <LoginSignUpForm />
+      <SignUpForm />
+      <LogInForm />
       <Footer />
     </div>
   );

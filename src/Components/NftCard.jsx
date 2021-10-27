@@ -23,9 +23,9 @@ export default function NftCards({ id, name, price, description, url }) {
             price,
             url,
           });
-          // setModal("NftModal");
-          setModal("AdminNftModal");
-          // the above needs to set NftModal if you are a client and adminNftModal if admin
+          // the below needs to set NftModal if you are a client and adminNftModal if admin
+          setModal("NftModal");
+          // setModal("AdminNftModal");
           console.log("ahhh clicked card");
         }}
       >

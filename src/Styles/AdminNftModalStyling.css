@@ -8,7 +8,7 @@
   display: grid;
   grid-template:
     "artInfo adminInfo" 80vh
-    "adminbuttons adminbuttons" 20vh/
+    "artInfo adminInfo" 20vh/
     1fr 1fr;
 }
 
@@ -25,7 +25,7 @@
   padding-bottom: 2ch;
 }
 
-.modal {
+/* .modal {
   position: relative;
   background-color: rgba(0, 0, 0, 0.575);
   width: 20%;
@@ -37,7 +37,7 @@
   border-radius: 30px;
   text-align: center;
   padding-bottom: 2ch;
-}
+} */
 
 .nftImageLarge {
   width: 500px;
@@ -46,12 +46,7 @@
 .artInfo {
   grid-area: artInfo;
 }
-.buyInfo {
-  grid-area: buyInfo;
-}
-.adminInfo {
-  grid-area: adminInfo;
-}
+
 .adminButtons {
-  grid-area: adminbuttons;
+  grid-area: adminButtons;
 }

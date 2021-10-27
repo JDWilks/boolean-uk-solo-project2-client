@@ -1,13 +1,27 @@
 import React from "react";
 import { useStore } from "../Hooks/store";
 
-// import "../Styles/AdminNftModalStyling.css";
+import "../Styles/AdminNftModalStyling.css";
+import AdminAmendForm from "../Components/AdminAmendForm";
 
 function NftModal() {
   //using zustand store to set the appropriate modal
   const setModal = useStore((store) => store.setModal);
   // using zustand to store / retrieve current nft info for display in modal
   const currentNft = useStore((store) => store.currentNft);
+
+  function deleteOneNft() {
+    fetch(`http://localhost:3030/nftArt/${currentNft.id}`, {
+      method: "DELETE",
+    })
+      // Converting to JSON
+      .then((response) => response.json())
+      // Displaying results to console
+      .then((DELETEDNft) => console.log("DELETEDNft >>>", DELETEDNft)) //save in state or whatever
+      // .then((json) => console.log(json))
+      .catch((error) => error);
+  }
+
   return (
     <article className="modal-bg">
       <div className="nftArtModal">
@@ -28,15 +42,23 @@ function NftModal() {
         </div>
         {/* this div holds all the right hand side user info fi you are logged in as a client */}
         <div className="adminInfo">
-          <h1>
-            admin tool - amend appears and changes to delete on clicking buttons
-          </h1>
+          <div className="adminAmendSection">
+            <p>Amend This NFT</p>
+            <AdminAmendForm />
+          </div>
+          <div className="adminDeleteSection">
+            <p>Delete This NFT</p>
+            <button
+              onClick={() => {
+                deleteOneNft();
+              }}
+              className="deleteNftbutton"
+            >
+              Delete This nft
+            </button>
+          </div>
         </div>
         {/* this div holds all the admin buttons - sort out why they sit below modal */}
-        <div className="adminButtons">
-          <button>Amend NFT</button>
-          <button>Delete NFT</button>
-        </div>
       </div>
       <span
         className="modalClose"
