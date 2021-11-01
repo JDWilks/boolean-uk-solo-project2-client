@@ -11,7 +11,7 @@ export default function NftCards({ id, name, price, description, url }) {
   console.log("id of the nftfs...", id);
 
   return (
-    <article className="nfts">
+    <article className="allnfts">
       {/* on clicking a nft card that info is stored in zustand state (setNft) to use with all the nft info for that card which is brought up in a modal  */}
       <div
         className="nftCard"

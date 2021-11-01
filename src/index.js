@@ -5,6 +5,8 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 
+// source of the project - app is wrapped in browser router so we can use routes
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

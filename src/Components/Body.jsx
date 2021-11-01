@@ -21,16 +21,8 @@ function Body() {
   useEffect(() => {
     getAllNfts();
 
-    // fetch for log in form - un hard code it
-
-    // fetch("http://localhost:3030/login", {
-    //   credentials: "include",
-    //   headers: { "Content-Type": "application/json" },
-    //   method: "POST",
-    //   body: JSON.stringify({ email: "nathan@nathan.com", password: "nathan" }),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => console.log("data...", data));
+    // on rendering the page the below fetch runs
+    // you can only get to trade if you have a token ?
 
     fetch("http://localhost:3030/trade", { credentials: "include" })
       .then((res) => res.json())

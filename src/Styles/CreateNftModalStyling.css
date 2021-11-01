@@ -1,0 +1,8 @@
+.createModal {
+  border: 1px solid black;
+  width: 50vw;
+  height: 50vh;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  padding: 35px;
+}

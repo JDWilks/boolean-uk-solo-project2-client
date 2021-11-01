@@ -8,3 +8,31 @@ input[type="email"] {
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
+
+.logInForm,
+.signUpForm {
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.takeMeHomeButton {
+  margin-left: 50px;
+  margin-top: 106px;
+  cursor: pointer;
+}
+
+.takeMeHomeButton:hover,
+.loginButton:hover,
+.signUpButton:hover {
+  color: red;
+}
+
+.loginButton,
+.signUpButton {
+  cursor: pointer;
+}
+
+.signUpFormHeader,
+.logInFormHeader {
+  margin-bottom: 30px;
+}

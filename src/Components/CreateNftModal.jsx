@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import "../styles/modalStyling.css";
+import "../Styles/CreateNftModalStyling.css";
 import { useStore } from "../Hooks/store";
 
 export default function CreateNftModal() {
@@ -44,6 +44,9 @@ export default function CreateNftModal() {
   }
 
   // handle submit triggered on submitting the form
+  // it creates the new nft
+  // it should then gett all nft's rendering the page which is not happening
+  // it then closes the modal
   function handleSubmit(e) {
     e.preventDefault();
     createNft();
@@ -53,7 +56,7 @@ export default function CreateNftModal() {
 
   return (
     <div className="modal-bg">
-      <form className="modal" onSubmit={handleSubmit}>
+      <form className="createModal" onSubmit={handleSubmit}>
         <label className="createNftModalCopy" htmlFor="name">
           Name:
         </label>

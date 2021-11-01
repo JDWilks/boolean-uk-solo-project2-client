@@ -16,10 +16,11 @@ function SignUpForm() {
   // assigning a variable to useHistory
 
   const history = useHistory();
+  console.log("history is...", history);
 
   // handlesubmit runs after you have clicked the submit button - create user is triggered as well as useHistory to send users back to the home screen
   function handleSubmit(e) {
-    // e.preventDefault();
+    e.preventDefault();
     createUser();
     history.push("/");
   }
@@ -46,11 +47,9 @@ function SignUpForm() {
       // setting current user in zustand state so can be used in any component
       .then((data) => {
         setCurrentUser({
-          firstName,
-          lastName,
-          email,
-          password,
-          // role,
+          firstName: data.firstName,
+          email: data.email,
+          role: data.role,
           id: data.id,
         });
 
@@ -63,8 +62,9 @@ function SignUpForm() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <div className="signUpForm">
+      <form onSubmit={handleSubmit} className="signUpForm">
+        <h1 className="signUpFormHeader">SIGN UP FORM</h1>
+        <div>
           <label htmlFor="firstName">
             <b>First Name</b>
           </label>
@@ -109,13 +109,7 @@ function SignUpForm() {
             required
           />
 
-          <button
-            type="submit"
-            value="Submit"
-            // onClick={() => {
-            //   history.push("/");
-            // }}
-          >
+          <button type="submit" value="Submit" className="signUpButton">
             Sign Up
           </button>
         </div>

@@ -1,0 +1,26 @@
+.footer {
+  color: white;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 30px;
+}
+
+.infoNfts {
+  color: white;
+  text-decoration: none;
+}
+
+.infoNfts:hover {
+  color: rgba(238, 14, 201);
+}
+
+.socialIcons {
+  opacity: 0.5;
+}
+
+.socialIcons:hover {
+  opacity: 1;
+}

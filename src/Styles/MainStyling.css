@@ -7,17 +7,17 @@
     1fr 1fr 1fr;
 }
 
-.header {
+.loginHeader {
   grid-area: header;
-  background-color: aliceblue;
+  background-color: black;
 }
 
 .body {
   grid-area: body;
-  background-color: aqua;
+  background-color: black;
 }
 
 .footer {
   grid-area: footer;
-  background-color: burlywood;
+  background-color: black;
 }

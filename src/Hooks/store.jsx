@@ -8,14 +8,13 @@ export const useStore = create((set, get) => ({
     }));
   },
 
+  //
   currentUser: {},
   setCurrentUser: (user) => {
     set((store) => ({
       currentUser: {
         firstName: user.firstName,
-        lastName: user.lastName,
         email: user.email,
-        password: user.password,
         id: user.id,
         role: user.role,
       },

@@ -12,12 +12,12 @@
   background-color: rgb(78, 130, 175);
 }
 
-.body {
+/* .body {
   grid-area: body;
   background-color: rgb(163, 104, 211);
-}
+} */
 
 .adminFooter {
   grid-area: adminFooter;
-  background-color: rgb(72, 223, 160);
+  background-color: black;
 }

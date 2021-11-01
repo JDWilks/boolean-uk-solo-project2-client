@@ -3,7 +3,7 @@
   width: 80vw;
   height: 80vh;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.76);
+  background-color: rgb(255, 255, 255);
   padding: 35px;
   display: grid;
   grid-template:
@@ -40,6 +40,7 @@
 
 .nftImageLarge {
   width: 500px;
+  box-shadow: 8px 8px 8px 8px rgba(94, 92, 93, 0.404);
 }
 
 .artInfo {
@@ -47,4 +48,21 @@
 }
 .buyInfo {
   grid-area: buyInfo;
+}
+
+.youAreSendingCopy,
+.etheriumAddress,
+.checkYourInfoCopy,
+.checkYourInfoCopy2 {
+  margin-top: 20px;
+}
+
+.purchaseNowButton {
+  cursor: pointer;
+  margin-top: 50px;
+  height: 30px;
+  width: 130px;
+}
+.purchaseNowButton:hover {
+  color: red;
 }

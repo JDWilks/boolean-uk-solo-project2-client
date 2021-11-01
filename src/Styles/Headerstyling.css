@@ -1,0 +1,33 @@
+.loginHeader {
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 30px;
+}
+
+.logInLink {
+  text-decoration: none;
+  color: white;
+}
+
+.logInLink:hover {
+  color: rgba(238, 14, 201);
+}
+
+.logout {
+  cursor: pointer;
+}
+
+.jdw__collect {
+  text-decoration: none;
+  color: white;
+}
+
+.jdw__collect:hover {
+  color: rgba(238, 14, 201);
+}
+
+/* trying to get rid of the underline on jdw_collect */
+/* .navigation a {
+  text-decoration: none;
+} */

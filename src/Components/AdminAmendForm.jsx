@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useStore } from "../Hooks/store";
+import "../Styles/AdminNftModalStyling.css";
 
 export default function AdminAmendNft() {
   //   const setModal = useStore((store) => store.setModal);
@@ -98,7 +99,7 @@ export default function AdminAmendNft() {
         onChange={(e) => setArtWorkUrl(e.target.value)}
       />
 
-      <input type="submit" value="Submit" />
+      <input type="submit" value="Amend" className="adminAmendButton" />
     </form>
   );
 }

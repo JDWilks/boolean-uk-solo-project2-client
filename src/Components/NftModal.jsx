@@ -10,30 +10,43 @@ function NftModal() {
   const currentNft = useStore((store) => store.currentNft);
   const currentUser = useStore((store) => store.currentUser);
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [wallet, setWallet] = useState("");
+  const [firstName, setFirstName] = useState(currentUser.firstName);
+  const [lastName, setLastName] = useState(currentUser.lastName);
+  const [email, setEmail] = useState(currentUser.email);
 
-  // below isnt working yet as current use isnt being stored at log in - need to sort out
-  useEffect(() => {
-    setFirstName(currentUser.firstName);
-    setLastName(currentUser.lastName);
-    setEmail(currentUser.email);
-    setWallet(currentUser.walletAddress);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  console.log("current user is", currentUser);
 
-  // on submitting form fetch is triggered in the handlesubmit (previously work around now works on the button)
+  //sending info to the trade table in the backend so i can use it in the trade table (admin) in the front end
+
+  function createTrade() {
+    fetch("http://localhost:3030/trade", {
+      // Adding method type
+      method: "POST",
+      // Adding headers to the request
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      // Adding body or contents to send to backend (taken directly from zustand state)
+      body: JSON.stringify({
+        userId: currentUser.id,
+        nftId: currentNft.nftUuId,
+        purchasePrice: currentNft.price,
+        type: "BUY",
+      }),
+    })
+      .then((res) => res.json())
+
+      .catch((error) => console.error("FETCH ERROR:", error));
+  }
+
+  // on submitting form fetch is triggered in the handlesubmit sending the sale info to the backend
 
   function handleSubmit() {
     // e.preventDefault();
-    // createTrade();
+    createTrade();
     setModal("");
     console.log("handle submit");
-    alert(
-      "Congratulations, check your email for confirmation, the Etherium blockchain can take a while to process the payment"
-    );
   }
 
   return (
@@ -77,15 +90,7 @@ function NftModal() {
             type="email"
             value={email}
           />
-          <h5 className="walletAddressfieldloginBuy__modal">
-            Your Etherium Address
-          </h5>
-          <input
-            className="buyInput"
-            onChange={(e) => setWallet(e.target.value)}
-            type="text"
-            value={wallet}
-          />
+
           <p className="youAreSendingCopy">
             You are sending {currentNft.price} etherium to this etherium
             address:
@@ -101,7 +106,7 @@ function NftModal() {
           </p>
 
           {/* purchase button needs to only shows when logged in otherwise prompted to login */}
-          <div className="purchaseCheckButton">
+          <div>
             <button className="purchaseNowButton" onClick={handleSubmit}>
               Purchase Now
             </button>

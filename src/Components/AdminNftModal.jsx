@@ -43,16 +43,16 @@ function NftModal() {
         {/* this div holds all the right hand side user info fi you are logged in as a client */}
         <div className="adminInfo">
           <div className="adminAmendSection">
-            <p>Amend This NFT</p>
+            <p className="adminAmendCopy">Amend This NFT</p>
             <AdminAmendForm />
           </div>
           <div className="adminDeleteSection">
-            <p>Delete This NFT</p>
+            <p className="adminDeleteCopy">Delete This NFT</p>
             <button
+              className="adminDeleteButton"
               onClick={() => {
                 deleteOneNft();
               }}
-              className="deleteNftbutton"
             >
               Delete This nft
             </button>
