@@ -7,7 +7,10 @@ import "../Styles/Headerstyling.css";
 // header component for users
 
 function Header() {
+  // zustand state for current user
+
   const currentUser = useStore((store) => store.currentUser);
+  const setCurrentUser = useStore((store) => store.setCurrentUser);
 
   // assigning a variable to useHistory
 
@@ -15,13 +18,16 @@ function Header() {
   console.log("history from header", history);
 
   // logging out a user - sending this request to the logout route in the backend
-  // credentials include is the token i think
+  // credentials include is the cookie
+  // we then set the current user to empty to their name disapears from the top of the page
+  // we send them to the home page if they logged out from another page
 
   function logUserOut() {
-    history.push("/");
     fetch("http://localhost:3030/logout", {
       credentials: "include",
-    });
+    })
+      .then(setCurrentUser(""))
+      .then(history.push("/"));
   }
 
   return (
@@ -59,49 +65,8 @@ function Header() {
           </p>
         )}
       </p>
-
-      {/* {!currentUser.firstName ? (
-        ""
-      ) : (
-        <button
-          className="logOutButton"
-          onClick={() => {
-            logUserOut();
-            console.log("logout button clicked");
-          }}
-        >
-          Log Out{" "}
-        </button>
-      )}  */}
     </div>
   );
 }
 
 export default Header;
-
-{
-  /* <article className="header">
-<div className="loginHeader">
-  <p className="jdw__collect">JDW - Collect</p>
-  <p className="blockchain">NFT ArtWork on the Ethereum blockchain </p>
-  <p className="header__copy">Only one person can own the original !</p>
-  <p
-    className="loginHeaderButton"
-    onClick={() => {
-      setModal("LoginModal");
-    }}
-  >
-    Hello &nbsp;
-    {!currentUser.firstName ? "Please login" : currentUser.firstName}
-  </p>
-  <p
-    className="logoutheader"
-    onClick={() => {
-      setCurrentUser({});
-    }}
-  >
-    {currentUser.firstName ? "LogOut" : ""}
-  </p>
-</div>
-</article> */
-}

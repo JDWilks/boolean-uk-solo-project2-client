@@ -13,6 +13,8 @@ import { useStore } from "./Hooks/store";
 
 function App() {
   const setCurrentUser = useStore((store) => store.setCurrentUser);
+  const allNfts = useStore((store) => store.allNfts);
+  const setAllNfts = useStore((store) => store.setAllNfts);
 
   // runs once on render so it sets the current user so we can use this to greet the user (basically so if you refresh the page the user is not logged out)
   useEffect(() => {
@@ -20,20 +22,30 @@ function App() {
     // check out the notes in the backend auth controller for explanation
     fetch("http://localhost:3030/cookie", { credentials: "include" })
       .then((res) => res.json())
-      .then((data) => setCurrentUser(data));
+      .then((data) => {
+        setCurrentUser(data);
+        return data;
+      });
+    // .then(() => {
+    console.log("from app js");
+    fetch("http://localhost:3030/nftArt")
+      .then((res) => res.json())
+      .then((fetchedNfts) => setAllNfts(fetchedNfts))
+      .catch((error) => console.error("FETCH ERROR:", error));
+    // });
   }, []);
 
   return (
     <>
       <Switch>
         <Route path="/" exact>
-          <Main />
+          <Main allNfts={allNfts} />
         </Route>
         <Route path="/trade" exact>
           <Trade />
         </Route>
         <Route path="/admin" exact>
-          <Admin />
+          <Admin allNfts={allNfts} />
         </Route>
         <Route path="/login" exact>
           <Login />

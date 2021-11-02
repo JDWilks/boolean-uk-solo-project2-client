@@ -76,13 +76,13 @@ function NftModal() {
             type="text"
             value={firstName}
           />
-          <h5 className="lastNamefieldloginBuy__modal">Last Name</h5>
+          {/* <h5 className="lastNamefieldloginBuy__modal">Last Name</h5>
           <input
             className="buyInput"
             onChange={(e) => setLastName(e.target.value)}
             type="text"
             value={lastName}
-          />
+          /> */}
           <h5 className="emailfieldloginBuy__modal">Email</h5>
           <input
             className="buyInput"

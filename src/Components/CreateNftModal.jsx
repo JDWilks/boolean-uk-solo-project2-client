@@ -4,7 +4,12 @@ import { useStore } from "../Hooks/store";
 
 export default function CreateNftModal() {
   const setModal = useStore((store) => store.setModal);
-  const [allNfts, setAllNfts] = useState([]);
+  // const [allNfts, setAllNfts] = useState([]);
+
+  // zustand ztate to replace the above local state
+
+  const setAllNfts = useStore((store) => store.setAllNfts);
+
   const [artWorkName, setArtWorkName] = useState("");
   const [artWorkPrice, setArtWorkPrice] = useState("");
   const [artWorkDescription, setArtWorkDescription] = useState("");
@@ -39,7 +44,7 @@ export default function CreateNftModal() {
   function getAllNfts() {
     fetch("http://localhost:3030/nftArt")
       .then((res) => res.json())
-      .then((allNfts) => setAllNfts(allNfts))
+      .then((fetchedNfts) => setAllNfts(fetchedNfts))
       .catch((error) => console.error("FETCH ERROR:", error));
   }
 

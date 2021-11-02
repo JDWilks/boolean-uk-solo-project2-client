@@ -17,7 +17,10 @@ export default function AdminAmendNft() {
 
   useEffect(() => {
     setArtWorkUrl(currentNft.url);
-  }, [currentNft.url]);
+    setArtWorkName(currentNft.name);
+    setArtWorkDescription(currentNft.description);
+    setArtWorkPrice(currentNft.price);
+  }, []);
 
   function amendNft() {
     fetch(`http://localhost:3030/nftArt/${currentNft.id}`, {
@@ -29,7 +32,6 @@ export default function AdminAmendNft() {
         price: artWorkPrice,
         description: artWorkDescription,
         url: artWorkUrl,
-        // currentNft.UuId,
       }),
       // Adding headers to the request
       headers: {

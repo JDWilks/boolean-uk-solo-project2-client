@@ -6,14 +6,14 @@ import "../Styles/MainStyling.css";
 
 // this is the main page users reach which has 3 components rendered (header / body / footer)
 
-function main() {
+function Main({ allNfts }) {
   return (
     <div className="mainPageWrapper">
       <Header />
-      <Body />
+      <Body allNfts={allNfts} />
       <Footer />
     </div>
   );
 }
 
-export default main;
+export default Main;

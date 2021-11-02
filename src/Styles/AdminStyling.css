@@ -9,7 +9,8 @@
 
 .adminHeader {
   grid-area: adminHeader;
-  background-color: rgb(78, 130, 175);
+  background-color: black;
+  text-align: center;
 }
 
 /* .body {
@@ -20,4 +21,34 @@
 .adminFooter {
   grid-area: adminFooter;
   background-color: black;
+}
+
+.createButton {
+  margin-right: 30px;
+  width: 148 px;
+  font-size: large;
+  height: 26 px;
+
+  color: black;
+  cursor: pointer;
+  margin-top: 33px;
+}
+
+.takeMeToTradeButton {
+  width: 148 px;
+  font-size: large;
+  height: 26 px;
+
+  color: black;
+  cursor: pointer;
+  margin-top: 33px;
+}
+.createButton:hover,
+.takeMeToTradeButton:hover {
+  color: red;
+}
+
+.adminInfo {
+  color: white;
+  margin-top: 10px;
 }

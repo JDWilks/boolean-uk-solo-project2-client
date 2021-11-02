@@ -29,4 +29,26 @@ export const useStore = create((set, get) => ({
       currentNft: nft,
     }));
   },
+
+  // i was using local state but need access to allNft's in other components so 👇👇👇👇👇
+
+  allNfts: [],
+  setAllNfts: (nfts) => {
+    set((store) => ({
+      allNfts: nfts,
+    }));
+  },
+  // allNfts: [],
+  // setAllNfts: (nfts) =>
+  //   set((store) => ({
+  //     allNfts: [
+  //       {
+  //         id: nfts.id,
+  //         name: nfts.name,
+  //         price: nfts.price,
+  //         description: nfts.description,
+  //         url: nfts.url,
+  //       },
+  //     ],
+  //   })),
 }));
