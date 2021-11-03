@@ -9,6 +9,8 @@ function NftModal() {
   const setModal = useStore((store) => store.setModal);
   // using zustand to store / retrieve current nft info for display in modal
   const currentNft = useStore((store) => store.currentNft);
+  const allNfts = useStore((store) => store.allNfts);
+  const setAllNfts = useStore((store) => store.setAllNfts);
 
   function deleteOneNft() {
     fetch(`http://localhost:3030/nftArt/${currentNft.id}`, {
@@ -16,7 +18,7 @@ function NftModal() {
     })
       // Converting to JSON
       .then((response) => response.json())
-      // Displaying results to console
+      // need to filter here to remove the nft from all nfts to setallnfts which re-renders page
       .then((DELETEDNft) => console.log("DELETEDNft >>>", DELETEDNft)) //save in state or whatever
       // .then((json) => console.log(json))
       .catch((error) => error);
