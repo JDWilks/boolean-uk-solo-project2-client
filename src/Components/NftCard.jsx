@@ -8,7 +8,9 @@ export default function NftCards({ id, name, price, description, url }) {
   const setModal = useStore((store) => store.setModal);
   // using zustand tate to store nft info for use in the modal
   const setNft = useStore((store) => store.setCurrentNft);
-  console.log("id of the nftfs...", id);
+  // using zustand state to store the current user
+  const currentUser = useStore((store) => store.currentUser);
+  // console.log("id of the nftfs...", id);
 
   return (
     <article className="allnfts">
@@ -24,9 +26,13 @@ export default function NftCards({ id, name, price, description, url }) {
             url,
           });
           // the below needs to set NftModal if you are a client and adminNftModal if admin
-          setModal("NftModal");
+          // setModal("NftModal");
           // setModal("AdminNftModal");
-          console.log("ahhh clicked card");
+          // console.log("ahhh clicked card");
+          console.log("current suer", currentUser);
+          currentUser.role === "user"
+            ? setModal("NftModal")
+            : setModal("AdminNftModal");
         }}
       >
         <img className="nftImage" src={url} alt={name} />

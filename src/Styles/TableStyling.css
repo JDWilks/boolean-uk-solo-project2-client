@@ -1,0 +1,28 @@
+.table {
+  width: 100vw;
+  color: white;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+
+.tableHeader {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: white;
+}
+
+.backHomeTrade {
+  text-align: end;
+  padding: 20px;
+  color: white;
+}
+
+.tableContainer {
+  background: black;
+}

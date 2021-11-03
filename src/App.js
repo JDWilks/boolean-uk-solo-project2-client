@@ -26,14 +26,13 @@ function App() {
         setCurrentUser(data);
         return data;
       });
-    // .then(() => {
+
     console.log("from app js");
     fetch("http://localhost:3030/nftArt")
       .then((res) => res.json())
       .then((fetchedNfts) => setAllNfts(fetchedNfts))
       .catch((error) => console.error("FETCH ERROR:", error));
-    // });
-  }, []);
+  }, [setAllNfts, setCurrentUser]);
 
   return (
     <>

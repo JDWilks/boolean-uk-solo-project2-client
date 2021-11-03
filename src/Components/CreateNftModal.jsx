@@ -7,6 +7,7 @@ export default function CreateNftModal() {
   // const [allNfts, setAllNfts] = useState([]);
 
   // zustand ztate to replace the above local state
+  const allNfts = useStore((store) => store.allNfts);
 
   const setAllNfts = useStore((store) => store.setAllNfts);
 
@@ -36,8 +37,12 @@ export default function CreateNftModal() {
       // Converting to JSON
       .then((response) => response.json())
       // Displaying results to console
-      .then((newNft) => console.log("newNft >>>", newNft)) //save in state or whatever is newUser
-      // .then((json) => console.log(json))
+      .then((newNft) => {
+        // this sets new state setAllNfts with all previous nfts (...allNfts) and the new one
+        // this re-renders the page
+        setAllNfts([...allNfts, newNft]);
+      })
+
       .catch((error) => console.log("Frontend error", error));
   }
 

@@ -20,7 +20,7 @@ function Header() {
   // logging out a user - sending this request to the logout route in the backend
   // credentials include is the cookie
   // we then set the current user to empty to their name disapears from the top of the page
-  // we send them to the home page if they logged out from another page
+  // we send them to the home page if they logged out from another
 
   function logUserOut() {
     fetch("http://localhost:3030/logout", {

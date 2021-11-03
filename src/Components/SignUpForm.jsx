@@ -51,6 +51,7 @@ function SignUpForm() {
           email: data.email,
           role: data.role,
           id: data.id,
+          wallet: data.wallet,
         });
 
         console.log("setCurrentUser is...", setCurrentUser);

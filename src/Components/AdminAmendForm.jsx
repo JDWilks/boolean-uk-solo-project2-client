@@ -5,6 +5,10 @@ import "../Styles/AdminNftModalStyling.css";
 export default function AdminAmendNft() {
   //   const setModal = useStore((store) => store.setModal);
   const currentNft = useStore((store) => store.currentNft);
+  const allNfts = useStore((store) => store.allNfts);
+  const setAllNfts = useStore((store) => store.setAllNfts);
+
+  const setModal = useStore((store) => store.setModal);
   const [artWorkName, setArtWorkName] = useState("");
   const [artWorkPrice, setArtWorkPrice] = useState("");
   const [artWorkDescription, setArtWorkDescription] = useState("");
@@ -40,15 +44,36 @@ export default function AdminAmendNft() {
     })
       // Converting to JSON
       .then((response) => response.json())
-      // Displaying results to console
-      .then((amendedNft) => console.log("amendedNft >>>", amendedNft))
-      // .then((json) => console.log(json))
+      // below I need to setAllNfts (so page re-renders) with allNfts including ammended one
+      .then((amendedNft) => {
+        // creating a variable updatedarray which is a map function
+        // it maps through allNfts and for every nft it checks if the amended nft id is the same as a nft.id (within allNfts)
+        // then use a ternary to return the array with the amended nft
+        // then setAllNfts (which re-renders the page) with the new array
+        const updatedArray = allNfts.map((nft) =>
+          amendedNft.updatedNft.id === nft.id ? amendedNft.updatedNft : nft
+        );
+        setAllNfts(updatedArray);
+      })
       .catch((error) => error);
   }
+
+  // all nfts is a array so i can filter
+  // i can filter for id that matches amendedNft.id (true i keep in the array, false i dont?)
+  // allNfts.filter
+
+  // function to find the ammended nft in the all nfts array
+  // function isInNftArray(nft){
+  //   return (amendedNft.id === nft.id)
+  // }
+  // applying filter to the nfts array with the function as argument
+  // allNfts.filter(isInNftArray)
+  // console.log(allNfts)
 
   function handleSubmit(e) {
     e.preventDefault();
     amendNft();
+    setModal("");
   }
 
   return (

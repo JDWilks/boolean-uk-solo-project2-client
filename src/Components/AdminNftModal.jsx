@@ -1,6 +1,5 @@
 import React from "react";
 import { useStore } from "../Hooks/store";
-
 import "../Styles/AdminNftModalStyling.css";
 import AdminAmendForm from "../Components/AdminAmendForm";
 
@@ -19,7 +18,19 @@ function NftModal() {
       // Converting to JSON
       .then((response) => response.json())
       // need to filter here to remove the nft from all nfts to setallnfts which re-renders page
-      .then((DELETEDNft) => console.log("DELETEDNft >>>", DELETEDNft)) //save in state or whatever
+      .then((deletedNft) => {
+        // filter creates a new array
+        // created a variable updatedWithoutDeletedNftArray which is a filter function
+        // it filters through allNfts and for every nft if checks if deleted Nft.id is the same a a nft.id within the array
+        // then use a ternary to return a array without the deleted nft
+        // then setAllnfts (which re-renders page) with the new array
+        console.log("deletedNft...", deletedNft);
+        console.log("deletedNft id...", deletedNft.id);
+        const updatedWithoutDeletedNftArray = allNfts.filter(
+          (nft) => deletedNft.id !== nft.id
+        );
+        setAllNfts(updatedWithoutDeletedNftArray);
+      })
       // .then((json) => console.log(json))
       .catch((error) => error);
   }
@@ -54,6 +65,7 @@ function NftModal() {
               className="adminDeleteButton"
               onClick={() => {
                 deleteOneNft();
+                setModal("");
               }}
             >
               Delete This nft

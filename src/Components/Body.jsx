@@ -3,7 +3,7 @@ import NftCard from "../Components/NftCard";
 import { useStore } from "../Hooks/store";
 import "../Styles/Bodystyling.css";
 
-function Body({ allNfts }) {
+function Body() {
   // using state so i can store the nft's from the fetch and useEffect to render immediately
   // const [allNfts, setAllNfts] = useState([]);
   // console.log("allNfts state", allNfts);
@@ -11,6 +11,7 @@ function Body({ allNfts }) {
   // zustand ztate to replace the above local state
 
   const setAllNfts = useStore((store) => store.setAllNfts);
+  const allNfts = useStore((store) => store.allNfts);
 
   // function to get all nfts
   function getAllNfts() {

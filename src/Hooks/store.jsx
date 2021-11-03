@@ -17,6 +17,7 @@ export const useStore = create((set, get) => ({
         email: user.email,
         id: user.id,
         role: user.role,
+        wallet: user.wallet,
       },
     }));
   },

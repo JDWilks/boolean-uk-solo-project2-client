@@ -11,7 +11,7 @@ function NftModal() {
   const currentUser = useStore((store) => store.currentUser);
 
   const [firstName, setFirstName] = useState(currentUser.firstName);
-  const [lastName, setLastName] = useState(currentUser.lastName);
+  // const [lastName, setLastName] = useState(currentUser.lastName);
   const [email, setEmail] = useState(currentUser.email);
 
   console.log("current user is", currentUser);
@@ -27,16 +27,19 @@ function NftModal() {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
+      credentials: "include",
       // Adding body or contents to send to backend (taken directly from zustand state)
       body: JSON.stringify({
         userId: currentUser.id,
-        nftId: currentNft.nftUuId,
+        nftId: currentNft.id,
         purchasePrice: currentNft.price,
-        type: "BUY",
       }),
     })
       .then((res) => res.json())
-
+      .then((newTrade) => {
+        console.log("newTrade", newTrade);
+        // use history to go to confirmation page
+      })
       .catch((error) => console.error("FETCH ERROR:", error));
   }
 
