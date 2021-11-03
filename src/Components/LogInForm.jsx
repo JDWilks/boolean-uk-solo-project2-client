@@ -20,7 +20,7 @@ export default function LogInForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://localhost:3030/login", {
+    fetch(`${process.env.REACT_APP_BACKENDURL}/login`, {
       credentials: "include",
       headers: { "Content-Type": "application/json" },
       method: "POST",

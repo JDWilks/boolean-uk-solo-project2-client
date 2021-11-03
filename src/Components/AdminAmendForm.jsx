@@ -27,7 +27,7 @@ export default function AdminAmendNft() {
   }, []);
 
   function amendNft() {
-    fetch(`http://localhost:3030/nftArt/${currentNft.id}`, {
+    fetch(`${process.env.REACT_APP_BACKENDURL}/nftArt/${currentNft.id}`, {
       // Adding method type
       method: "PATCH",
       // Adding body or contents to send (artWorkName etc are taken directly from state)

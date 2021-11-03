@@ -26,7 +26,7 @@ function SignUpForm() {
   }
 
   function createUser() {
-    fetch("http://localhost:3030/user", {
+    fetch(`${process.env.REACT_APP_BACKENDURL}/user`, {
       // Adding method type
       method: "POST",
       // Adding headers to the request

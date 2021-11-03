@@ -15,7 +15,7 @@ function Body() {
 
   // function to get all nfts
   function getAllNfts() {
-    fetch("http://localhost:3030/nftArt")
+    fetch(`${process.env.REACT_APP_BACKENDURL}/nftArt`)
       .then((res) => res.json())
       .then((fetchedNfts) => setAllNfts(fetchedNfts))
       .catch((error) => console.error("FETCH ERROR:", error));
@@ -30,7 +30,7 @@ function Body() {
   //   // on rendering the page the below fetch runs
   //   // you can only get to trade if you have a token ?
 
-  //   fetch("http://localhost:3030/trade", { credentials: "include" })
+  //   fetch("process.env.REACT_APP_BACKENDURL/trade", { credentials: "include" })
   //     .then((res) => res.json())
   //     .then((data) => console.log("data...", data));
 

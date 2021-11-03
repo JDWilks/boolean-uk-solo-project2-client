@@ -18,7 +18,7 @@ export default function CreateNftModal() {
 
   // create nft function sending info to the backend
   function createNft() {
-    fetch("http://localhost:3030/nftArt", {
+    fetch(`${process.env.REACT_APP_BACKENDURL}/nftArt`, {
       // Adding method type
       method: "POST",
       // Adding headers to the request
@@ -47,7 +47,7 @@ export default function CreateNftModal() {
   }
 
   function getAllNfts() {
-    fetch("http://localhost:3030/nftArt")
+    fetch(`${process.env.REACT_APP_BACKENDURL}/nftArt`)
       .then((res) => res.json())
       .then((fetchedNfts) => setAllNfts(fetchedNfts))
       .catch((error) => console.error("FETCH ERROR:", error));

@@ -23,7 +23,7 @@ function Header() {
   // we send them to the home page if they logged out from another
 
   function logUserOut() {
-    fetch("http://localhost:3030/logout", {
+    fetch(`${process.env.REACT_APP_BACKENDURL}/logout`, {
       credentials: "include",
     })
       .then(setCurrentUser(""))

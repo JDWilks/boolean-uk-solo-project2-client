@@ -20,7 +20,9 @@ function App() {
   useEffect(() => {
     // fetching to the /cookie route and sending the cookie(credentials) - this is in Auth in the backend
     // check out the notes in the backend auth controller for explanation
-    fetch("http://localhost:3030/cookie", { credentials: "include" })
+    fetch(`${process.env.REACT_APP_BACKENDURL}/cookie`, {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => {
         setCurrentUser(data);
@@ -28,7 +30,7 @@ function App() {
       });
 
     console.log("from app js");
-    fetch("http://localhost:3030/nftArt")
+    fetch(`${process.env.REACT_APP_BACKENDURL}/nftArt`)
       .then((res) => res.json())
       .then((fetchedNfts) => setAllNfts(fetchedNfts))
       .catch((error) => console.error("FETCH ERROR:", error));

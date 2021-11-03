@@ -12,7 +12,7 @@ function NftModal() {
   const setAllNfts = useStore((store) => store.setAllNfts);
 
   function deleteOneNft() {
-    fetch(`http://localhost:3030/nftArt/${currentNft.id}`, {
+    fetch(`${process.env.REACT_APP_BACKENDURL}/nftArt/${currentNft.id}`, {
       method: "DELETE",
     })
       // Converting to JSON

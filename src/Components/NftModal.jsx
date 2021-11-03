@@ -19,7 +19,7 @@ function NftModal() {
   //sending info to the trade table in the backend so i can use it in the trade table (admin) in the front end
 
   function createTrade() {
-    fetch("http://localhost:3030/trade", {
+    fetch(`${process.env.REACT_APP_BACKENDURL}/trade`, {
       // Adding method type
       method: "POST",
       // Adding headers to the request
