@@ -17,7 +17,7 @@ function App() {
   const allNfts = useStore((store) => store.allNfts);
   const setAllNfts = useStore((store) => store.setAllNfts);
   //using zustand store to set the appropriate modal
-  const setModal = useStore((store) => store.setModal);
+  // const setModal = useStore((store) => store.setModal);
 
   // runs once on render so it sets the current user so we can use this to greet the user (basically so if you refresh the page the user is not logged out)
   console.log("process thing...", process.env.REACT_APP_API);

@@ -10,7 +10,7 @@ export default function LogInForm() {
   const [password, setPassword] = useState("");
   // setting / getting current user in zustand
   const setCurrentUser = useStore((store) => store.setCurrentUser);
-  const currentUser = useStore((store) => store.currentUser);
+  // const currentUser = useStore((store) => store.currentUser);
   // assigning a variable to useHistory to push
   const history = useHistory();
 
@@ -37,7 +37,8 @@ export default function LogInForm() {
         currentUser.role === "admin"
           ? history.push("/admin")
           : history.push("/");
-      });
+      })
+      .catch((error) => console.error("FETCH ERROR:", error));
   }
 
   return (

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useStore } from "../Hooks/store";
 import { useHistory } from "react-router-dom";
 import "../Styles/nftModalStyling.css";

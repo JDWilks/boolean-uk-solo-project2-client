@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import NftCard from "../Components/NftCard";
 import { useStore } from "../Hooks/store";
 import "../Styles/Bodystyling.css";
