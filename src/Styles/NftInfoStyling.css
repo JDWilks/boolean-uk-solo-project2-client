@@ -3,3 +3,8 @@
   align-content: center;
   justify-content: center;
 }
+
+.videoContainer {
+  background: black;
+  width: 100vw;
+}

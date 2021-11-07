@@ -1,0 +1,20 @@
+.purcahseContrainer {
+  background: black;
+  width: 100vw;
+}
+
+.purchaseCopy,
+.purchaseCopy2,
+.purchaseCopy3 {
+  color: white;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.purchasedNftArtCopy {
+  color: white;
+}
+
+.purchasedArtInfo {
+  text-align: -webkit-center;
+}

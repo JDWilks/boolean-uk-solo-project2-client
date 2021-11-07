@@ -4,13 +4,8 @@ import { useStore } from "../Hooks/store";
 
 export default function CreateNftModal() {
   const setModal = useStore((store) => store.setModal);
-  // const [allNfts, setAllNfts] = useState([]);
-
-  // zustand ztate to replace the above local state
   const allNfts = useStore((store) => store.allNfts);
-
   const setAllNfts = useStore((store) => store.setAllNfts);
-
   const [artWorkName, setArtWorkName] = useState("");
   const [artWorkPrice, setArtWorkPrice] = useState("");
   const [artWorkDescription, setArtWorkDescription] = useState("");
@@ -18,7 +13,7 @@ export default function CreateNftModal() {
 
   // create nft function sending info to the backend
   function createNft() {
-    fetch(`${process.env.REACT_APP_BACKENDURL}/nftArt`, {
+    fetch(`${process.env.REACT_APP_API}/nftArt`, {
       // Adding method type
       method: "POST",
       // Adding headers to the request
@@ -47,7 +42,7 @@ export default function CreateNftModal() {
   }
 
   function getAllNfts() {
-    fetch(`${process.env.REACT_APP_BACKENDURL}/nftArt`)
+    fetch(`${process.env.REACT_APP_API}/nftArt`)
       .then((res) => res.json())
       .then((fetchedNfts) => setAllNfts(fetchedNfts))
       .catch((error) => console.error("FETCH ERROR:", error));

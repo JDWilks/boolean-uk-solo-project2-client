@@ -25,25 +25,21 @@ export default function NftCards({ id, name, price, description, url }) {
             price,
             url,
           });
-          // the below needs to set NftModal if you are a client and adminNftModal if admin
-          // setModal("NftModal");
-          // setModal("AdminNftModal");
-          // console.log("ahhh clicked card");
-          console.log("current suer", currentUser);
-          currentUser.role === "user"
-            ? setModal("NftModal")
-            : setModal("AdminNftModal");
+          console.log("current user", currentUser);
+          currentUser.role === "admin"
+            ? setModal("AdminNftModal")
+            : setModal("NftModal");
         }}
       >
         <img className="nftImage" src={url} alt={name} />
         <h2 className="nftTitle">Title: {name}</h2>
         <h3 className="nftPrice">Price (Etherium): {price}</h3>
         <h3 className="nftPrice">Description : {description}</h3>
-        {/* on clicking buy button / or card launches the nftModal */}
+
         <button
           className="buyButton"
           onClick={() => {
-            console.log("ahhh clicked button");
+            console.log("buy button clicked test");
             setModal("NftModal");
           }}
         >

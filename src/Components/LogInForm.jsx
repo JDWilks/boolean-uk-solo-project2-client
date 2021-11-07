@@ -6,21 +6,17 @@ import "../Styles/FormStyling.css";
 
 export default function LogInForm() {
   // using state to store email and password from the form which is used in the fetch to log people in
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   // setting / getting current user in zustand
   const setCurrentUser = useStore((store) => store.setCurrentUser);
-
-  // assigning a variable to useHistory
+  const currentUser = useStore((store) => store.currentUser);
+  // assigning a variable to useHistory to push
   const history = useHistory();
-
-  // fetch for log in form - i dont understand how this is checking the token - ask nathan
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch(`${process.env.REACT_APP_BACKENDURL}/login`, {
+    fetch(`${process.env.REACT_APP_API}/login`, {
       credentials: "include",
       headers: { "Content-Type": "application/json" },
       method: "POST",
@@ -29,10 +25,19 @@ export default function LogInForm() {
       .then((res) => res.json())
       .then((userData) => {
         setCurrentUser(userData.user);
+        // returning userData so have access to it in the next .then
+        return userData.user;
       })
-
-      .catch((error) => console.error("FETCH ERROR:", error));
-    history.push("/");
+      .then((currentUser) => {
+        // currentuser returning from previous .then
+        console.log("currentuser from login", currentUser);
+        return currentUser;
+      })
+      .then((currentUser) => {
+        currentUser.role === "admin"
+          ? history.push("/admin")
+          : history.push("/");
+      });
   }
 
   return (
@@ -72,3 +77,9 @@ export default function LogInForm() {
     </div>
   );
 }
+
+// .then(
+//   currentUser.role === "admin"
+//     ? history.push("/admin")
+//     : history.push("/")
+// )

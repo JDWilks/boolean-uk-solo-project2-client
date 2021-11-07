@@ -26,7 +26,7 @@ function SignUpForm() {
   }
 
   function createUser() {
-    fetch(`${process.env.REACT_APP_BACKENDURL}/user`, {
+    fetch(`${process.env.REACT_APP_API}/user`, {
       // Adding method type
       method: "POST",
       // Adding headers to the request

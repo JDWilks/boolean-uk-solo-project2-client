@@ -3,21 +3,16 @@ import { useStore } from "../Hooks/store";
 import "../Styles/AdminNftModalStyling.css";
 
 export default function AdminAmendNft() {
-  //   const setModal = useStore((store) => store.setModal);
   const currentNft = useStore((store) => store.currentNft);
   const allNfts = useStore((store) => store.allNfts);
   const setAllNfts = useStore((store) => store.setAllNfts);
-
   const setModal = useStore((store) => store.setModal);
   const [artWorkName, setArtWorkName] = useState("");
   const [artWorkPrice, setArtWorkPrice] = useState("");
   const [artWorkDescription, setArtWorkDescription] = useState("");
   const [artWorkUrl, setArtWorkUrl] = useState("");
-  // const [artWorkUuId, setArtWorkUuId] = useState("");
 
   console.log("currentNft...", currentNft);
-
-  // So you can have a useEffect in your component that runs setArtWorkUrl(currentNft.url), then you can switch your input to using the artWorkUrl for its value
 
   useEffect(() => {
     setArtWorkUrl(currentNft.url);
@@ -27,7 +22,7 @@ export default function AdminAmendNft() {
   }, []);
 
   function amendNft() {
-    fetch(`${process.env.REACT_APP_BACKENDURL}/nftArt/${currentNft.id}`, {
+    fetch(`${process.env.REACT_APP_API}/nftArt/${currentNft.id}`, {
       // Adding method type
       method: "PATCH",
       // Adding body or contents to send (artWorkName etc are taken directly from state)
@@ -57,18 +52,6 @@ export default function AdminAmendNft() {
       })
       .catch((error) => error);
   }
-
-  // all nfts is a array so i can filter
-  // i can filter for id that matches amendedNft.id (true i keep in the array, false i dont?)
-  // allNfts.filter
-
-  // function to find the ammended nft in the all nfts array
-  // function isInNftArray(nft){
-  //   return (amendedNft.id === nft.id)
-  // }
-  // applying filter to the nfts array with the function as argument
-  // allNfts.filter(isInNftArray)
-  // console.log(allNfts)
 
   function handleSubmit(e) {
     e.preventDefault();

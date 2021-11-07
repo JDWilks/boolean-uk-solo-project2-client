@@ -12,7 +12,7 @@ function NftModal() {
   const setAllNfts = useStore((store) => store.setAllNfts);
 
   function deleteOneNft() {
-    fetch(`${process.env.REACT_APP_BACKENDURL}/nftArt/${currentNft.id}`, {
+    fetch(`${process.env.REACT_APP_API}/nftArt/${currentNft.id}`, {
       method: "DELETE",
     })
       // Converting to JSON
@@ -72,7 +72,6 @@ function NftModal() {
             </button>
           </div>
         </div>
-        {/* this div holds all the admin buttons - sort out why they sit below modal */}
       </div>
       <span
         className="modalClose"
@@ -82,8 +81,6 @@ function NftModal() {
       >
         ❎
       </span>
-
-      {/* displays left hand info on the nft - all info taken from state as we set it in the card and we take from zustand */}
     </article>
   );
 }

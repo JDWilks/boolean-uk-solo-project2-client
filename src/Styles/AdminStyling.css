@@ -43,8 +43,37 @@
   cursor: pointer;
   margin-top: 33px;
 }
+
+.adminFooter {
+  text-align: center;
+}
+
+.adminHomeButton {
+  width: 148 px;
+  font-size: large;
+  height: 26 px;
+
+  color: black;
+  cursor: pointer;
+  margin-top: 33px;
+  margin-left: 20px;
+}
+
+.adminLogOutButton {
+  width: 148 px;
+  font-size: large;
+  height: 26 px;
+
+  color: black;
+  cursor: pointer;
+  margin-top: 33px;
+  margin-right: 20px;
+}
+
 .createButton:hover,
-.takeMeToTradeButton:hover {
+.takeMeToTradeButton:hover,
+.adminHomeButton:hover,
+.adminLogOutButton:hover {
   color: red;
 }
 

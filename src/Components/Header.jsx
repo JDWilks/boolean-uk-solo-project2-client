@@ -8,12 +8,9 @@ import "../Styles/Headerstyling.css";
 
 function Header() {
   // zustand state for current user
-
   const currentUser = useStore((store) => store.currentUser);
   const setCurrentUser = useStore((store) => store.setCurrentUser);
-
   // assigning a variable to useHistory
-
   const history = useHistory();
   console.log("history from header", history);
 
@@ -23,7 +20,7 @@ function Header() {
   // we send them to the home page if they logged out from another
 
   function logUserOut() {
-    fetch(`${process.env.REACT_APP_BACKENDURL}/logout`, {
+    fetch(`${process.env.REACT_APP_API}/logout`, {
       credentials: "include",
     })
       .then(setCurrentUser(""))

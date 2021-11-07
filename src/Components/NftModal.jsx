@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useStore } from "../Hooks/store";
-
+import { useHistory } from "react-router-dom";
 import "../Styles/nftModalStyling.css";
 
 function NftModal() {
@@ -9,17 +9,18 @@ function NftModal() {
   // using zustand to store / retrieve current nft info for display in modal
   const currentNft = useStore((store) => store.currentNft);
   const currentUser = useStore((store) => store.currentUser);
-
+  // local state
   const [firstName, setFirstName] = useState(currentUser.firstName);
-  // const [lastName, setLastName] = useState(currentUser.lastName);
   const [email, setEmail] = useState(currentUser.email);
+  // assigning a variable to useHistory
+  const history = useHistory();
 
   console.log("current user is", currentUser);
 
   //sending info to the trade table in the backend so i can use it in the trade table (admin) in the front end
 
   function createTrade() {
-    fetch(`${process.env.REACT_APP_BACKENDURL}/trade`, {
+    fetch(`${process.env.REACT_APP_API}/trade`, {
       // Adding method type
       method: "POST",
       // Adding headers to the request
@@ -49,6 +50,7 @@ function NftModal() {
     // e.preventDefault();
     createTrade();
     setModal("");
+    history.push("/purchased");
     console.log("handle submit");
   }
 
@@ -79,13 +81,7 @@ function NftModal() {
             type="text"
             value={firstName}
           />
-          {/* <h5 className="lastNamefieldloginBuy__modal">Last Name</h5>
-          <input
-            className="buyInput"
-            onChange={(e) => setLastName(e.target.value)}
-            type="text"
-            value={lastName}
-          /> */}
+
           <h5 className="emailfieldloginBuy__modal">Email</h5>
           <input
             className="buyInput"
@@ -108,11 +104,14 @@ function NftModal() {
             ...this is the blockchain & you are your own bank!
           </p>
 
-          {/* purchase button needs to only shows when logged in otherwise prompted to login */}
-          <div>
-            <button className="purchaseNowButton" onClick={handleSubmit}>
-              Purchase Now
-            </button>
+          <div className="purchaseCheckButton">
+            {!currentUser.firstName ? (
+              <p>Please login to purchase NFT's</p>
+            ) : (
+              <button className="purchaseNowButton" onClick={handleSubmit}>
+                Purchase Now
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -124,8 +123,6 @@ function NftModal() {
       >
         ❎
       </span>
-
-      {/* displays left hand info on the nft - all info taken from state as we set it in the card and we take from zustand */}
     </article>
   );
 }

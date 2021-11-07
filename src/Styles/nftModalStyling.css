@@ -66,3 +66,12 @@
 .purchaseNowButton:hover {
   color: red;
 }
+
+.checkYourInfoCopy2 {
+  margin-bottom: 20px;
+}
+
+.purchaseCheckButton {
+  font-weight: bolder;
+  color: red;
+}
