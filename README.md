@@ -4,7 +4,7 @@ Build in react using JWT web tokens, prisma orm and SQL - styled in css.\
 
 This build took 2 working weeks and still needs various additions and bug fixes.
 
-### As a User:
+### `As A User`:
 Users can view all NFT’s on the page which are retreived from the database and mapped over.\
 When they click a NFT they can view the artwork in a larger format - they are prompted they need to log in or sign up to purchase.\
 On logging in / signing up they are greeted in the header.\
@@ -12,14 +12,14 @@ They can now click a NFT and modal appears with their information pre-populated.
 They can click purchase which takes them to a purchase route with info of the purchase.\
 They can refresh and still be logged in due to cookies.
 
-### As Admin:
+### `As Admin`:
 When logged in as a admin you are taken to the admin route.\
 There you are able to: Create / Update / Delete cards.\
 You are also able to view a trade table (this needs to be worked on to be made dynamic).
 
-### WireFrames: https://whimsical.com/nftartsitewireframe-93698WXtpuc88tvYw9TM3c
+### `WireFrames`: https://whimsical.com/nftartsitewireframe-93698WXtpuc88tvYw9TM3c
 
-### Database Models: https://whimsical.com/db-model-entity-5hZnSenvo56oW6S1REQ4TH
+### `Database Models`: https://whimsical.com/db-model-entity-5hZnSenvo56oW6S1REQ4TH
 
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
