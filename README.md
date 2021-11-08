@@ -1,6 +1,6 @@
 # Fake NFT Website
 
-Build in react using JWT web tokens, prisma orm and SQL - styled in css.\
+Build in react using JWT web tokens, prisma orm and SQL - styled in css.
 
 This build took 2 working weeks and still needs various additions and bug fixes.
 
