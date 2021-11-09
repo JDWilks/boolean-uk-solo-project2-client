@@ -2,6 +2,8 @@
 
 Build in react using JWT web tokens, prisma orm and SQL - styled in css.
 
+Deployed project: https://finalbooleanprojectmk2client.herokuapp.com/
+
 This build took 2 working weeks and still needs various additions and bug fixes.
 
 ### `As A User`:
