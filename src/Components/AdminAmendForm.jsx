@@ -86,7 +86,7 @@ export default function AdminAmendNft() {
       />
 
       <label className="ammendModalCopy" for="description">
-        Decription:
+        Description:
       </label>
 
       <input
