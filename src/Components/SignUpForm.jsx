@@ -47,12 +47,13 @@ function SignUpForm() {
       // setting current user in zustand state so can be used in any component
       .then((data) => {
         setCurrentUser({
-          firstName: data.firstName,
-          email: data.email,
-          role: data.role,
-          id: data.id,
-          wallet: data.wallet,
+          firstName: data.user.firstName,
+          email: data.user.email,
+          role: data.user.role,
+          id: data.user.id,
+          wallet: data.user.wallet,
         });
+        localStorage.setItem("token", data.token);
 
         console.log("setCurrentUser is...", setCurrentUser);
         console.log("id is...", data.id);

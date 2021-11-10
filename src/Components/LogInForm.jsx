@@ -24,7 +24,10 @@ export default function LogInForm() {
     })
       .then((res) => res.json())
       .then((userData) => {
+        console.log("userdata", userData);
         setCurrentUser(userData.user);
+        localStorage.setItem("token", userData.token);
+        console.log("saved token", localStorage.getItem("token"));
         // returning userData so have access to it in the next .then
         return userData.user;
       })

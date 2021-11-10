@@ -87,7 +87,7 @@ export default function CreateNftModal() {
         />
 
         <label className="createNftModalCopy" htmlFor="description">
-          Decription:
+          Description:
         </label>
 
         <input

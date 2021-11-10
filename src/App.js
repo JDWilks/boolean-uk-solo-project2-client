@@ -22,14 +22,16 @@ function App() {
   // runs once on render so it sets the current user so we can use this to greet the user (basically so if you refresh the page the user is not logged out)
   console.log("process thing...", process.env.REACT_APP_API);
   useEffect(() => {
-    // fetching to the /cookie route and sending the cookie(credentials) - this is in Auth in the backend
     // check out the notes in the backend auth controller for explanation
-    fetch(`${process.env.REACT_APP_API}/cookie`, {
-      credentials: "include",
+    fetch(`${process.env.REACT_APP_API}/verify`, {
+      // Adding headers to the request
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
-        setCurrentUser(data);
+        setCurrentUser(data.user);
         return data;
       });
 
