@@ -1,8 +1,22 @@
 import React from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../Styles/TableStyling.css";
 
 function TradeTable() {
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_API}/trade`, {
+      // Adding headers to the request
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("trade data >", data);
+      });
+  }, []);
+
   return (
     <div className="tableContainer">
       <h3 className="tableHeader">Table of purchases</h3>

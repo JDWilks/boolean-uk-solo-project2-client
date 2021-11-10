@@ -11,10 +11,11 @@ function Footer() {
   const history = useHistory();
 
   function logUserOut() {
-    fetch(`${process.env.REACT_APP_API}/logout`, {
-      credentials: "include",
-    })
-      .then(setCurrentUser(""))
+    fetch(`${process.env.REACT_APP_API}/logout`)
+      .then(() => {
+        setCurrentUser("");
+        localStorage.removeItem("token");
+      })
       .then(history.push("/"));
   }
 
