@@ -16,6 +16,7 @@ They can refresh and still be logged in due to cookies.
 
 ### `As Admin`:
 When logged in as a admin you are taken to the admin route.\
+Please use the following to log in as admin, email: test@admin.com // pw: test.\
 There you are able to: Create / Update / Delete cards.\
 You are also able to view a trade table (this needs to be worked on to be made dynamic).
 
