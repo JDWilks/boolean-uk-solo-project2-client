@@ -1,4 +1,4 @@
-# Fake NFT Website
+# Mock NFT Website
 
 Built in react using JWT web tokens, prisma orm and SQL - styled in css.
 
