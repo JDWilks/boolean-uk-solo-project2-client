@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useStore } from "../Hooks/store";
 import { useHistory } from "react-router-dom";
 import "../Styles/nftModalStyling.css";
@@ -106,7 +107,15 @@ function NftModal() {
 
           <div className="purchaseCheckButton">
             {!currentUser.firstName ? (
-              <p>Please login to purchase NFT's</p>
+              <Link
+                className="purchaseCheckButton"
+                to="/login"
+                onClick={() => {
+                  setModal("");
+                }}
+              >
+                Please login to purchase NFT's
+              </Link>
             ) : (
               <button className="purchaseNowButton" onClick={handleSubmit}>
                 Purchase Now
@@ -114,17 +123,21 @@ function NftModal() {
             )}
           </div>
         </div>
+        <span
+          className="modalClose"
+          onClick={() => {
+            setModal("");
+          }}
+        >
+          ❎
+        </span>
       </div>
-      <span
-        className="modalClose"
-        onClick={() => {
-          setModal("");
-        }}
-      >
-        ❎
-      </span>
     </article>
   );
 }
 
 export default NftModal;
+
+<Link className="purchaseCheckButton" to="/login">
+  Please login to purchase NFT's
+</Link>;

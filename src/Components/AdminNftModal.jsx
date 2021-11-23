@@ -72,15 +72,15 @@ function NftModal() {
             </button>
           </div>
         </div>
+        <span
+          className="modalClose"
+          onClick={() => {
+            setModal("");
+          }}
+        >
+          ❎
+        </span>
       </div>
-      <span
-        className="modalClose"
-        onClick={() => {
-          setModal("");
-        }}
-      >
-        ❎
-      </span>
     </article>
   );
 }
