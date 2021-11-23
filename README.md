@@ -1,6 +1,6 @@
 # Fake NFT Website
 
-Build in react using JWT web tokens, prisma orm and SQL - styled in css.
+Built in react using JWT web tokens, prisma orm and SQL - styled in css.
 
 Deployed project: https://finalbooleanprojectmk2client.herokuapp.com/
 
