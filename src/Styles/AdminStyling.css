@@ -13,11 +13,6 @@
   text-align: center;
 }
 
-/* .body {
-  grid-area: body;
-  background-color: rgb(163, 104, 211);
-} */
-
 .adminFooter {
   grid-area: adminFooter;
   background-color: black;
@@ -25,23 +20,27 @@
 
 .createButton {
   margin-right: 30px;
-  width: 148 px;
   font-size: large;
   height: 26 px;
-
   color: black;
   cursor: pointer;
-  margin-top: 33px;
+  margin-top: 20px;
+  width: 180px;
+  height: 35px;
+  background-color: rgb(226, 43, 226);
+  border: none;
 }
 
 .takeMeToTradeButton {
-  width: 148 px;
   font-size: large;
   height: 26 px;
-
   color: black;
   cursor: pointer;
-  margin-top: 33px;
+  margin-top: 20px;
+  width: 220px;
+  height: 35px;
+  background-color: rgb(226, 43, 226);
+  border: none;
 }
 
 .adminFooter {
@@ -49,32 +48,36 @@
 }
 
 .adminHomeButton {
-  width: 148 px;
   font-size: large;
   height: 26 px;
-
   color: black;
   cursor: pointer;
   margin-top: 33px;
   margin-left: 20px;
+  width: 134px;
+  height: 40px;
+  background-color: rgb(226, 43, 226);
+  border: none;
 }
 
 .adminLogOutButton {
-  width: 148 px;
   font-size: large;
   height: 26 px;
-
   color: black;
   cursor: pointer;
   margin-top: 33px;
   margin-right: 20px;
+  width: 100px;
+  height: 40px;
+  background-color: rgb(226, 43, 226);
+  border: none;
 }
 
 .createButton:hover,
 .takeMeToTradeButton:hover,
 .adminHomeButton:hover,
 .adminLogOutButton:hover {
-  color: red;
+  color: white;
 }
 
 .adminInfo {
