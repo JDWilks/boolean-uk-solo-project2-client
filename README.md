@@ -12,7 +12,7 @@ When they click a NFT they can view the artwork in a larger format - they are pr
 On logging in / signing up they are greeted in the header.\
 They can now click a NFT and modal appears with their information pre-populated.\
 They can click purchase which takes them to a purchase route with info of the purchase.\
-They can refresh and still be logged in due to cookies.
+They can refresh and still be logged in due to tokens.
 
 ### `As Admin`:
 When logged in as a admin you are taken to the admin route.\
