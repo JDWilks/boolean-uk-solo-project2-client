@@ -20,7 +20,7 @@ Please use the following to log in as admin, email: test@admin.com // pw: test.\
 There you are able to: Create / Update / Delete cards.\
 You are also able to view a trade table (this needs to be worked on to be made dynamic).
 
-### `WireFrames`: https://whimsical.com/nftartsitewireframe-93698WXtpuc88tvYw9TM3c
+### `WireFrames`: https://whimsical.com/go-collaborate-6YFjhx4RMme3N4oN66of3L
 
 ### `Database Models`: https://whimsical.com/db-model-entity-5hZnSenvo56oW6S1REQ4TH
 
